@@ -19,19 +19,14 @@ Do not proceed to the next step until the commit is confirmed and complete.
 
 ## Step 2 — Push
 
-After the commit is done, push the branch:
+Run the `git-push` skill in full.
 
-```bash
-git push
-```
+Follow every step defined in that skill:
+- Check for uncommitted changes
+- Detect whether the branch has an upstream
+- Push accordingly
 
-If the branch has no upstream yet, push with:
-
-```bash
-git push -u origin <current-branch>
-```
-
-Show the result and confirm the push was successful.
+Do not proceed to the next step until the push is confirmed successful.
 
 ## Step 3 — Open a PR
 
