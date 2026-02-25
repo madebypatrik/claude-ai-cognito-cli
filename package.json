@@ -1,0 +1,16 @@
+{
+  "name": "invtd-aws-devops",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "AWS DevOps scripts for INVTD platform",
+  "scripts": {
+    "create-user": "node cognito/create-user.js",
+    "login": "node cognito/login.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@aws-sdk/client-cognito-identity-provider": "^3.997.0"
+  }
+}
