@@ -44,4 +44,10 @@ EOF
 )"
 ```
 
-Return the PR URL to the user.
+## Step 4 — Return the PR URL and remind the user to review
+
+After the PR is created, print the PR URL clearly so the user can open it immediately.
+
+Then show this message:
+
+> "PR is open and ready. Please review the code before merging into develop — check for anything that looks unintended, and make sure the diff matches what you expected."
