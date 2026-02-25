@@ -104,13 +104,37 @@ node cognito/create-user.js
 node cognito/login.js
 ```
 
-## 🧩 Extending with AI
+## 🛠️ Claude Code Skills
 
-This project is designed to grow with your needs. Use Claude Code to add new AWS services or scripts without writing any code yourself.
+This project ships with built-in **Claude Code skills** — shortcuts you can trigger directly in Claude Code to handle common tasks without typing a single command yourself.
+
+### Git skills
+
+| Skill | What it does |
+|---|---|
+| `/git-branch` | Creates a new branch with the right naming format (`feature/`, `fix/`, `chore/`) |
+| `/git-commit` | Stages files, drafts a commit message, and waits for your review before committing |
+| `/git-push` | Pushes the current branch to remote, handles new branches automatically |
+| `/git-ship` | Full flow: commit → push → open PR against `develop`, step by step |
+| `/git-pr` | Drafts and creates a PR against `develop`, prints the URL and reminds you to review before merging |
+
+All git skills **always show a review step** before executing — nothing is committed, pushed, or merged without your explicit approval.
+
+### AWS skills
+
+| Skill | What it does |
+|---|---|
+| `/add-aws-feature` | Guided flow to add a new AWS service integration — creates the script, updates `package.json`, adds IAM permissions to `CLAUDE.md`, writes non-technical docs, and asks security questions before finishing |
 
 ### Add a new AWS service
 
-Open Claude Code in this project and say:
+Open Claude Code in this project and run:
+
+```
+/add-aws-feature
+```
+
+Or just tell Claude what you want:
 
 > *"Add a new script to send an email via AWS SES"*
 
@@ -118,17 +142,7 @@ Open Claude Code in this project and say:
 
 > *"Add a script to list all users in my Cognito user pool"*
 
-Claude will read the existing scripts, match the same patterns and style, create the new file, add it to `package.json`, and update the permissions in `CLAUDE.md`.
-
-### Create a Claude skill
-
-You can create a **Claude Code skill** to make common tasks even faster. A skill turns a plain English phrase into a repeatable action.
-
-For example, add a skill that sets up a full AWS integration from scratch:
-
-> *"Create a skill called setup-aws that walks me through configuring AWS credentials, sets the environment variables, and verifies the connection"*
-
-Once created, you can trigger it any time by typing `/setup-aws` in Claude Code.
+Claude will read the existing scripts, match the same patterns and style, create the new file, add it to `package.json`, update the permissions in `CLAUDE.md`, and write plain-English docs for it.
 
 ## 📋 Environment Variables
 
