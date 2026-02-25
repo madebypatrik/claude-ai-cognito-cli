@@ -1,15 +1,18 @@
-# Claude Permissions
+# Claude Agent Permissions
 
-## Allowed AWS Cognito Actions
+This file defines what AWS actions Claude is allowed to run in this project. When new services are added, this file must be updated to reflect the new permissions.
 
-Claude is only permitted to run the following AWS Cognito operations in this project:
+## Allowed AWS Actions
 
-| Action | Script | Description |
-|---|---|---|
-| `AdminCreateUser` | `cognito/create-user.js` | Create a new Cognito user |
-| `AdminSetUserPassword` | `cognito/create-user.js` | Set user password as permanent |
-| `InitiateAuth` | `cognito/create-user.js`, `cognito/login.js` | Authenticate a user and retrieve JWT tokens |
+| Action | Service | Script | Description |
+|---|---|---|---|
+| `cognito-idp:AdminCreateUser` | Cognito | `cognito/create-user.js` | Create a new Cognito user |
+| `cognito-idp:AdminSetUserPassword` | Cognito | `cognito/create-user.js` | Set user password as permanent |
+| `cognito-idp:InitiateAuth` | Cognito | `cognito/create-user.js`, `cognito/login.js` | Authenticate a user and retrieve JWT tokens |
 
-## Denied Actions
+## Rules
 
-All other AWS actions are denied. Claude must not run, add, or invoke any AWS API calls outside the list above — including but not limited to deleting users, listing users, updating user attributes, managing user pools, or any non-Cognito AWS services.
+- Claude must not run any AWS API calls outside the list above
+- When a new AWS service or script is added to this project, its required actions must be added to the table above before Claude can run them
+- All credentials must come from environment variables — never hardcoded
+- New scripts must follow the same pattern as existing ones: env var validation at startup, interactive prompts for missing args, clear error messages
